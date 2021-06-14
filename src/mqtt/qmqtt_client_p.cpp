@@ -563,7 +563,7 @@ void QMQTT::ClientPrivate::setKeepAlive(const quint16 keepAlive)
     _timer.setInterval(keepAlive*1000);
     // The MQTT specification does not mention a timeout value in this case, so we use 10% of the
     // keep alive interval.
-    _pingResponseTimer.setInterval(qBound(keepAlive * 100, 10000, keepAlive * 1000));
+    _pingResponseTimer.setInterval(keepAlive * 100);
 }
 
 quint16 QMQTT::ClientPrivate::keepAlive() const
